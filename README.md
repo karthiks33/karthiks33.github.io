@@ -3,7 +3,7 @@
 D3.js visualization for CS498 Data Visualization - Narrative Visualization
 
 # Live Project
-This proejct is hosted live on Github Pages at [https://github.com/karthiks33/karthiks33.github.io](https://github.com/karthiks33/karthiks33.github.io).
+This proejct is hosted live on Github Pages at [https://karthiks33.github.io/#](https://karthiks33.github.io/#).
 
 # About the Visualization
 A d3 visualization on the market share across all the countires in the world for the products Apparel, Footswear and Sportwear for the period 2016-2017.
