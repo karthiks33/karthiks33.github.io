@@ -9,7 +9,7 @@ function bubbleChart() {
         AP: {x: 3 * width / 16, y: height / 3},
         AS: {x: width / 3.7, y: 2 * height / 3},
         EE: {x: 3 * width / 8, y: height / 3},
-        WE: {x: width / 2, y: 2 * height / 3.05},
+        WE: {x: width / 2, y: 2 * height / 2.9},
         ME: {x: 5 * width / 7.5, y: height / 3},
         NA: {x: 2 * width / 2.75, y: 2 * height / 3},
         LA: {x: 13 * width / 15, y: height / 3}
@@ -21,18 +21,18 @@ function bubbleChart() {
         EE: {x: 7 * width / 20, y: height / 8},
         WE: {x: width / 2, y: 9 * height / 17},
         ME: {x: 13 * width / 20, y: height / 8},
-        NA: {x: 31 * width / 41, y: 9 * height / 15},
-        LA: {x: 8 * width / 9, y: height / 8}
+        NA: {x: 31 * width / 39, y: 9 * height / 17},
+        LA: {x: 8 * width / 8.7, y: height / 8}
     };
 
     var productCenters = {
-        Apparel: {x: 3 * width / 16, y: height / 3.9},
-        Footwear: {x: width / 3, y: 2 * height / 4.2},
-        Sportswear: {x: 3 * width / 6.5, y: height / 3.9}
+        Apparel: {x: 3 * width / 16, y: height / 3.6},
+        Footwear: {x: width / 2.6, y: 2 * height / 3.5},
+        Sportswear: {x: 3 * width / 6.5, y: height / 3.8}
     };
     var productTitles = {
         Apparel: {x: 3 * width / 18.5, y: height / 20},
-        Footwear: {x: width / 3, y: 2 * height / 5.8},
+        Footwear: {x: width / 2.6, y: 2 * height / 5.1},
         Sportswear: {x: 3 * width / 6, y: height / 18}
     };
 
@@ -64,7 +64,7 @@ function bubbleChart() {
         });
 
         var radiusScale = d3.scalePow()
-            .exponent(0.5)
+            .exponent(0.3)
             .range([2, 35])
             .domain([0, maxAmount]);
 
@@ -249,6 +249,28 @@ function bubbleChart() {
 
     function showDetail(d) {
         d3.select(this).attr('stroke', 'black');
+        var region=d.region;
+        if (region === 'AP'){
+            region = "Asia Pacific";
+        }
+        else if (region === 'EE'){
+            region = "Eastern Europe";
+        }
+        else if (region === 'ME'){
+            region = "Middle East and Africa";
+        }
+        else if (region === 'WE'){
+            region = "Western Europe";
+        }
+        else if (region === 'AS'){
+            region = "Australasia";
+        }
+        else if (region === 'LA'){
+            region = "Latin America";
+        }
+        else if (region === 'NA'){
+            region = "North America";
+        }
         var content = '<span class="name">Brand: </span><span class="value">' +
             d.brand +
             '</span><br/>' +
@@ -260,6 +282,9 @@ function bubbleChart() {
             '</span><br/>' +
             '<span class="name">Category: </span><span class="value">' +
             d.category +
+            '</span><br/>' +
+            '<span class="name">Region: </span><span class="value">' +
+            region +
             '</span>';
 
         tooltip.showTooltip(content, d3.event);
@@ -326,6 +351,6 @@ function addCommas(nStr) {
     return x1 + x2;
 }
 
-d3.csv('data/market_share_d3.csv', display);
+d3.csv('data/bubblechart.csv', display);
 
 setupButtons();
