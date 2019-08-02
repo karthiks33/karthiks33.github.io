@@ -278,7 +278,7 @@ function bubbleChart() {
             d.product +
             '</span><br/>' +
             '<span class="name">Growth Percent: </span><span class="value">' +
-            addCommas(d.growth_percent) +
+            addCommas(d.growth_percent) + "%" +
             '</span><br/>' +
             '<span class="name">Category: </span><span class="value">' +
             d.category +
